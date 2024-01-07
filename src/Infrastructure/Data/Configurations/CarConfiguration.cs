@@ -7,8 +7,6 @@ public class CarConfiguration : IEntityTypeConfiguration<Car>
 {
     public void Configure(EntityTypeBuilder<Car> builder)
     {
-       // builder.Property(t => t.Title)
-       //     .HasMaxLength(200)
-       //     .IsRequired();
+        throw new NotSupportedException();
     }
 }

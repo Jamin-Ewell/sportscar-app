@@ -3,49 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.7.34003.232
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Application", "src\Application\Application.csproj", "{3D90A175-297D-44F6-9A42-8651342BF7B5}"
-EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Domain", "src\Domain\Domain.csproj", "{E3FBBC44-A443-4848-9DAD-32EFF4529A74}"
-EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Infrastructure", "src\Infrastructure\Infrastructure.csproj", "{E9BD8DBB-9586-42A9-947E-029327E9457A}"
-EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Domain.UnitTests", "tests\Domain.UnitTests\Domain.UnitTests.csproj", "{5AB8A3F1-528A-4276-87C5-B64AA0B7E741}"
-EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Infrastructure.IntegrationTests", "tests\Infrastructure.IntegrationTests\Infrastructure.IntegrationTests.csproj", "{08E79C4B-271D-40FC-B8E4-CDB23F14E664}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SportscarApi", "SportscarApi\SportscarApi.csproj", "{F9DA314B-931A-41D2-BCB6-FDF43CEF3052}"
-EndProject
 Global
-	GlobalSection(SolutionConfigurationPlatforms) = preSolution
-		Debug|Any CPU = Debug|Any CPU
-		Release|Any CPU = Release|Any CPU
-	EndGlobalSection
-	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{3D90A175-297D-44F6-9A42-8651342BF7B5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{3D90A175-297D-44F6-9A42-8651342BF7B5}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{3D90A175-297D-44F6-9A42-8651342BF7B5}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{3D90A175-297D-44F6-9A42-8651342BF7B5}.Release|Any CPU.Build.0 = Release|Any CPU
-		{E3FBBC44-A443-4848-9DAD-32EFF4529A74}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{E3FBBC44-A443-4848-9DAD-32EFF4529A74}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{E3FBBC44-A443-4848-9DAD-32EFF4529A74}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{E3FBBC44-A443-4848-9DAD-32EFF4529A74}.Release|Any CPU.Build.0 = Release|Any CPU
-		{E9BD8DBB-9586-42A9-947E-029327E9457A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{E9BD8DBB-9586-42A9-947E-029327E9457A}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{E9BD8DBB-9586-42A9-947E-029327E9457A}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{E9BD8DBB-9586-42A9-947E-029327E9457A}.Release|Any CPU.Build.0 = Release|Any CPU
-		{5AB8A3F1-528A-4276-87C5-B64AA0B7E741}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{5AB8A3F1-528A-4276-87C5-B64AA0B7E741}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{5AB8A3F1-528A-4276-87C5-B64AA0B7E741}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{5AB8A3F1-528A-4276-87C5-B64AA0B7E741}.Release|Any CPU.Build.0 = Release|Any CPU
-		{08E79C4B-271D-40FC-B8E4-CDB23F14E664}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{08E79C4B-271D-40FC-B8E4-CDB23F14E664}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{08E79C4B-271D-40FC-B8E4-CDB23F14E664}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{08E79C4B-271D-40FC-B8E4-CDB23F14E664}.Release|Any CPU.Build.0 = Release|Any CPU
-		{F9DA314B-931A-41D2-BCB6-FDF43CEF3052}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{F9DA314B-931A-41D2-BCB6-FDF43CEF3052}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{F9DA314B-931A-41D2-BCB6-FDF43CEF3052}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{F9DA314B-931A-41D2-BCB6-FDF43CEF3052}.Release|Any CPU.Build.0 = Release|Any CPU
-	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
