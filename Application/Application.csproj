@@ -1,11 +1,13 @@
-﻿<Project>
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
   <PropertyGroup>
     <TargetFramework>net8.0</TargetFramework>
-    <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
     <ImplicitUsings>enable</ImplicitUsings>
     <Nullable>enable</Nullable>
   </PropertyGroup>
+
   <ItemGroup>
-    <PackageVersion Include="Swashbuckle.AspNetCore" Version="6.4.0" />
+    <ProjectReference Include="..\Domain\Domain.csproj" />
   </ItemGroup>
+
 </Project>
