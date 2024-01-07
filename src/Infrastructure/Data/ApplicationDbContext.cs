@@ -6,18 +6,20 @@ using sportscar_app.Domain.Entities;
 using sportscar_app.Infrastructure.Identity;
 
 namespace sportscar_app.Infrastructure.Data;
-public class ApplicationDbContext : IdentityDbContext<ApplicationUser>, IApplicationDbContext
+public class ApplicationDbContext : DbContext
 {
     public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options) : base(options) { }
 
-    public DbSet<TodoList> TodoLists => Set<TodoList>();
+    public DbSet<User> Users => Set<User>();
 
-    public DbSet<TodoItem> TodoItems => Set<TodoItem>();
+    public DbSet<Car> Cars => Set<Car>();
 
-    protected override void OnModelCreating(ModelBuilder builder)
+    public DbSet<Dealer> Dealer => Set<Dealer>();
+
+    protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
-        builder.ApplyConfigurationsFromAssembly(Assembly.GetExecutingAssembly());
+        modelBuilder.ApplyConfigurationsFromAssembly(Assembly.GetExecutingAssembly());
 
-        base.OnModelCreating(builder);
+        base.OnModelCreating(modelBuilder);
     }
 }
