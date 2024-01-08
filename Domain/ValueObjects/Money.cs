@@ -7,6 +7,6 @@ using System.Threading.Tasks;
 namespace Domain.ValueObjects;
 public class Money
 {
-    public string? Currency { get; set; }
-    public int Amount { get; set; }
+    public string? Currency { get; private set; }
+    public decimal Amount { get; private set; }
 }

@@ -4,13 +4,33 @@ using System.Linq;
 using System.Runtime.InteropServices.JavaScript;
 using System.Text;
 using System.Threading.Tasks;
+using Domain.ValueObjects;
 
 namespace Domain.Entities;
 public class Rental
 {
-    public DateTime StartDate { get; set; }
-    public DateTime EndDate { get; set; }
-    public string Location { get; set; } = string.Empty;
-    public bool IsInsured { get; set; }
-    public int Mileage { get; set; }
+    public DateTime StartDate { get; private set; }
+    public DateTime EndDate { get; private set; }
+    public Address? Location { get; private set; }
+    public int Mileage { get; private set; }
+    public bool IsInsured { get; private set; }
+    public Car? RentedCar { get; private set; }
+    public Dealer? Dealer { get; private set; }
+    public bool IsAvailable { get; private set; }
+
+
+    public void StartRental()
+    {
+        // Logic to start rental
+        StartDate = DateTime.Now;
+        RentedCar?.BookCar();
+
+    }
+
+    public void CompleteRental()
+    {
+        // Logic to complete rental
+        EndDate = DateTime.Now;
+        RentedCar?.ReturnCar();
+    }
 }
