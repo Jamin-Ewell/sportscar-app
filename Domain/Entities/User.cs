@@ -8,10 +8,18 @@ namespace Domain.Entities
 {
     public class User
     {
-        public int Id { get; set; }
-        public string Name { get; set; } = string.Empty;
-        public string Email { get; set; } = string.Empty;
-        public Car? Car { get; set; }
+        private User() { }
+
+        public User(int id, string name, string email)
+        {
+            Id = id;
+            Name = name;
+            Email = email;
+        }
+        public int Id { get; private set; }
+        public string Name { get; private set; } = string.Empty;
+        public string Email { get;  private set; } = string.Empty;
+        public Car? Car { get; private set; }
 
         public void RentCarFromDealer(Dealer dealer, Car car)
         {

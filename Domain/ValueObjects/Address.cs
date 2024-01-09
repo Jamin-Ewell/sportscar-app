@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace Domain.ValueObjects;
-public class Address
+public record Address
 {
     public string Street { get; set; } = string.Empty;
     public string City { get; set; } = string.Empty;
