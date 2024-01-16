@@ -17,6 +17,12 @@ public class CarsController : ControllerBase
     public async Task<IActionResult> GetAvailableCars()
     {
         var cars = await _carService.GetAvailableCarsAsync();
+
+        if (cars == null)
+        {
+            return BadRequest();
+        }
+
         return Ok(cars);
     }
 }
