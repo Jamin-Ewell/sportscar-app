@@ -13,6 +13,10 @@ builder.Services.AddSwaggerGen();
 builder.Services.AddDbContext<Context>(opts =>
     opts.UseNpgsql("Host=localhost;Database=CustomerDB;Username=root;Password=password"));
 
+builder.Services.AddAutoMapper(typeof(Program));
+builder.Services.AddControllersWithViews();
+
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
