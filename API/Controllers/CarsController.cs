@@ -1,4 +1,5 @@
 using Application.Services;
+using Domain.Entities;
 using Microsoft.AspNetCore.Mvc;
 
 namespace API.Controllers;
@@ -16,13 +17,20 @@ public class CarsController : ControllerBase
     [HttpGet("available")]
     public async Task<IActionResult> GetAvailableCars()
     {
-        var cars = await _carService.GetAvailableCarsAsync();
-
-        if (cars == null)
+        try
         {
-            return BadRequest();
-        }
+            var cars = await _carService.GetAvailableCarsAsync();
 
-        return Ok(cars);
+            if (cars == null)
+            {
+                return Ok(new List<Car>());
+            }
+
+            return Ok(cars);
+        }
+        catch (Exception )
+        {
+            return StatusCode(500, "An error occurred while processing your request.");
+        }
     }
 }
