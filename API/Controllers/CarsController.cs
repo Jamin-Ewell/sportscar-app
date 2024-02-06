@@ -28,7 +28,7 @@ public class CarsController : ControllerBase
 
             return Ok(cars);
         }
-        catch (Exception )
+        catch (Exception)
         {
             return StatusCode(500, "An error occurred while processing your request.");
         }

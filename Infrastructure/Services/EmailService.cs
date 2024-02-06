@@ -26,10 +26,10 @@ namespace Infrastructure.Services
         {
             var toAddress = new MailAddress(toEmail);
             using (var message = new MailMessage(_fromAddress, toAddress)
-                   {
-                       Subject = subject,
-                       Body = body
-                   })
+            {
+                Subject = subject,
+                Body = body
+            })
             {
                 _smtpClient.Send(message);
             }

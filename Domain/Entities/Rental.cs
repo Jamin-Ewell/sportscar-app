@@ -18,7 +18,6 @@ public class Rental
     public Dealer? Dealer { get; private set; }
     public bool IsAvailable { get; private set; }
 
-
     public void StartRental()
     {
         // Logic to start rental

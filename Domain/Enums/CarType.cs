@@ -8,6 +8,6 @@ namespace Domain.Enums;
 public enum CarType
 {
     Sedan = 1,
-    SUV =2,
+    SUV = 2,
     Sports = 3,
 }

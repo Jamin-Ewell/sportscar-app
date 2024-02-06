@@ -8,7 +8,6 @@ using Domain.ValueObjects;
 namespace Domain.Entities;
 public class Car
 {
-    private Car() { }
 
     public Car(int id, string model, bool isRented)
     {
@@ -31,11 +30,13 @@ public class Car
         IsRented = false;
     }
 
-
     public void ReturnCar()
     {
         IsRented = true;
     }
 
+    private Car()
+    {
+    }
 
 }
