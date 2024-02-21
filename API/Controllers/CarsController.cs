@@ -1,5 +1,7 @@
+using Application.MediatR;
 using Application.Services;
 using Domain.Entities;
+using MediatR;
 using Microsoft.AspNetCore.Mvc;
 
 namespace API.Controllers;
@@ -7,30 +9,18 @@ namespace API.Controllers;
 [Route("[controller]")]
 public class CarsController : ControllerBase
 {
-    private readonly CarService _carService;
+    private readonly IMediator _mediator;
 
-    public CarsController(CarService carService)
+    public CarsController(CarService carService, IMediator mediator)
     {
-        _carService = carService;
+        _mediator = mediator;
     }
 
     [HttpGet("available")]
     public async Task<IActionResult> GetAvailableCars()
     {
-        try
-        {
-            var cars = await _carService.GetAvailableCarsAsync();
-
-            if (cars == null)
-            {
-                return Ok(new List<Car>());
-            }
-
+            var cars = await _mediator.Send(new GetAvailableCarsQuery());
             return Ok(cars);
-        }
-        catch (Exception)
-        {
-            return StatusCode(500, "An error occurred while processing your request.");
-        }
+
     }
 }
