@@ -9,13 +9,12 @@ using Domain.ValueObjects;
 namespace Domain.Entities;
 public class Rental
 {
+    public int Id { get; set; }
     public DateTime StartDate { get; private set; }
     public DateTime EndDate { get; private set; }
-    public Address? Location { get; private set; }
     public int Mileage { get; private set; }
     public bool IsInsured { get; private set; }
     public Car? RentedCar { get; private set; }
-    public Dealer? Dealer { get; private set; }
     public bool IsAvailable { get; private set; }
 
     public void StartRental()

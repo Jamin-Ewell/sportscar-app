@@ -1,9 +1,16 @@
+using Application.Services;
 using Infrastructure.Persistence;
+using Infrastructure.Repository;
+using Infrastructure.Repository.IRepository;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
+builder.Services.AddTransient<CarService>();
+
+// Assuming CarRepository implements ICarRepository, register it here
+builder.Services.AddTransient<ICarRepository, CarRepository>();
 
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
@@ -11,7 +18,7 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
 builder.Services.AddDbContext<Context>(opts =>
-    opts.UseNpgsql("Host=localhost;Database=CustomerDB;Username=root;Password=password"));
+    opts.UseNpgsql("Host=localhost;Database=SportCarsDb;Username=root;Password=password"));
 
 builder.Services.AddAutoMapper(typeof(Program));
 builder.Services.AddControllersWithViews();

@@ -23,21 +23,6 @@ namespace Domain.Entities
         public string Email { get; private set; } = string.Empty;
         public Car? Car { get; private set; }
 
-        public void RentCarFromDealer(Dealer dealer, Car car)
-        {
-            dealer.RentCar(this, car);
-        }
-
-        public void ReturnCarToDealer(Dealer dealer, Car car)
-        {
-            if (this.Car != car)
-            {
-                throw new InvalidOperationException("This is not the rented car.");
-            }
-
-            car.ReturnCar();
-            this.Car = null;
-        }
     }
 
 }

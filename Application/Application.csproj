@@ -13,6 +13,7 @@
 
   <ItemGroup>
     <Folder Include="Automapper\AutomapperProfile\" />
+    <Folder Include="Interfaces\" />
   </ItemGroup>
 
   <ItemGroup>

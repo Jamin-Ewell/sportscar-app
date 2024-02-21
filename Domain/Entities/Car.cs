@@ -8,35 +8,29 @@ using Domain.ValueObjects;
 namespace Domain.Entities;
 public class Car
 {
+    public int Id { get; private set; }
+    public string Make { get; private set; } 
+    public string Model { get; private set; }
+    public int Year { get; private set; }
+    public bool IsRented { get; private set; }
 
-    public Car(int id, string model, bool isRented)
+    // Adjusted constructor parameters to include Make and Year, matching the class properties
+    public Car(int id, string make, string model, int year, bool isRented)
     {
         Id = id;
+        Make = make;
         Model = model;
+        Year = year;
         IsRented = isRented;
     }
 
-    public int Id { get; private set; }
-    public string Make { get; private set; } = string.Empty;
-    public string Model { get; private set; } = string.Empty;
-    public int Year { get; private set; }
-    public bool IsRented { get; private set; }
-    public int DealerId { get; private set; }
-    public Dealer? Dealer { get; private set; }
-    public Address LastKnownAddress { get; private set; } = new Address();
-
     public void BookCar()
     {
-        IsRented = false;
+        IsRented = true; // Assuming you want to set IsRented to true to indicate the car is now rented
     }
 
     public void ReturnCar()
     {
-        IsRented = true;
+        IsRented = false; // Assuming you want to set IsRented to false to indicate the car is no longer rented
     }
-
-    private Car()
-    {
-    }
-
 }

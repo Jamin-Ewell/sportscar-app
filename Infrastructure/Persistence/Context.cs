@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Domain.Entities;
+using Domain.ValueObjects;
 using Microsoft.EntityFrameworkCore;
 
 namespace Infrastructure.Persistence
@@ -20,16 +21,21 @@ namespace Infrastructure.Persistence
 
         public DbSet<User>? User { get; set; }
 
-        public DbSet<Dealer>? Dealer { get; set; }
-
         public DbSet<Rental>? Rental { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            // Seed data for Dealer
-            modelBuilder.Entity<Dealer>().HasData(
-                new Dealer(1, "Fast Cars Inc.", "High performance car dealer"),
-                new Dealer(2, "Eco Friendly Motors", "Eco-friendly and electric cars"));
+            // Existing configurations
+
+            // Configure Rental entity
+            modelBuilder.Entity<Rental>().HasKey(r => r.Id); // Explicitly setting Id as the primary key
+
+            // If you intend to use 'Rental' as a keyless entity, you would instead use:
+            modelBuilder.Entity<Address>().HasNoKey();
+
+            modelBuilder.Entity<Money>().HasNoKey();
+
+
 
             // Seed data for User
             modelBuilder.Entity<User>().HasData(
@@ -37,15 +43,16 @@ namespace Infrastructure.Persistence
                 new User(2, "Jane Smith", "janesmith@example.com"));
 
             // Seed data for Car
+            // Seed data for Car
             modelBuilder.Entity<Car>().HasData(
-                new Car(1, "Sportster 3000", false),
-                new Car(2, "EcoHatch 1", false));
+                new Car(1,  "MakeOfSportster3000", "Sportster 3000", 2020, false),
+                new Car(2,  "MakeOfEcoHatch1", "EcoHatch 1", 2020, false)
+            );
 
-            // one to many dealer can have many Cars
-            modelBuilder.Entity<Dealer>()
-                .HasMany(d => d.Cars)
-                .WithOne(c => c.Dealer)
-                .HasForeignKey(c => c.DealerId);
+
+
+
+
         }
 
     }
