@@ -1,8 +1,12 @@
+using Application.MediatR;
 using Application.Services;
 using Infrastructure.Persistence;
 using Infrastructure.Repository;
 using Infrastructure.Repository.IRepository;
 using Microsoft.EntityFrameworkCore;
+using MediatR;
+using System.Reflection;
+using Microsoft.Extensions.DependencyInjection;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -21,6 +25,23 @@ builder.Services.AddDbContext<Context>(opts =>
     opts.UseNpgsql("Host=localhost;Database=SportCarsDb;Username=root;Password=password"));
 
 builder.Services.AddAutoMapper(typeof(Program));
+
+builder.Services.AddMediatR(cfg => cfg.RegisterServicesFromAssembly(typeof(Program).Assembly));
+
+builder.Services.AddMediatR(cfg => cfg.RegisterServicesFromAssembly(typeof(GetAvailableCarsQueryHandler).Assembly));
+
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy(name: "AllowSpecificOrigin",
+        builder =>
+        {
+            builder.WithOrigins("http://localhost:3000") // Frontend application's URL
+                .AllowAnyHeader()
+                .AllowAnyMethod();
+        });
+});
+
+
 builder.Services.AddControllersWithViews();
 
 var app = builder.Build();
@@ -33,6 +54,8 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
+
+app.UseCors("AllowSpecificOrigin"); // Apply the CORS policy
 
 app.UseAuthorization();
 
