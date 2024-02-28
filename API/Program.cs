@@ -30,12 +30,14 @@ builder.Services.AddMediatR(cfg => cfg.RegisterServicesFromAssembly(typeof(Progr
 
 builder.Services.AddMediatR(cfg => cfg.RegisterServicesFromAssembly(typeof(GetAvailableCarsQueryHandler).Assembly));
 
+builder.Services.AddMediatR(cfg => cfg.RegisterServicesFromAssembly(typeof(UpdateCarStatusCommandHandler).Assembly));
+
 builder.Services.AddCors(options =>
 {
     options.AddPolicy(name: "AllowSpecificOrigin",
         builder =>
         {
-            builder.WithOrigins("http://localhost:3000") // Frontend application's URL
+            builder.WithOrigins("http://localhost:3000") 
                 .AllowAnyHeader()
                 .AllowAnyMethod();
         });

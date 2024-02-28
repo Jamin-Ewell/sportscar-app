@@ -23,5 +23,21 @@ public class CarRepository : ICarRepository
         if (_context.Cars == null) return Enumerable.Empty<Car>();
         return await _context.Cars.Where(c => !c.IsRented).ToListAsync();
     }
+
+    public async Task<Car?> FindByIdAsync(int id)
+    {
+        if (_context.Cars == null) throw new InvalidOperationException("Could not find id.");
+        var car = await _context.Cars.FindAsync(id);
+        return car; 
+    }
+
+
+
+    public async Task UpdateAsync(Car car)
+    {
+        if (_context.Cars == null) throw new InvalidOperationException("Database set 'Cars' is null.");
+        _context.Cars.Update(car);
+        await _context.SaveChangesAsync();
+    }
 }
 

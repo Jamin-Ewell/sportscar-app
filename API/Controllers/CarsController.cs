@@ -1,3 +1,4 @@
+using Application.DTOs;
 using Application.MediatR;
 using Application.Services;
 using Domain.Entities;
@@ -22,5 +23,16 @@ public class CarsController : ControllerBase
             var cars = await _mediator.Send(new GetAvailableCarsQuery());
             return Ok(cars);
 
+    }
+
+    [HttpPost("update/{carId}")]
+    public async Task<IActionResult> UpdateCarStatus(int carId, [FromBody] UpdateCarStatusDto updateDto)
+    {
+        var result = await _mediator.Send(new UpdateCarStatusCommand(carId, updateDto.IsRented));
+        if (result)
+        {
+            return Ok();
+        }
+        return NotFound();
     }
 }

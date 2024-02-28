@@ -10,5 +10,7 @@ namespace Infrastructure.Repository.IRepository;
 public interface ICarRepository
 {
     Task<IEnumerable<Car>> GetAvailableCarsAsync();
+    Task<Car?> FindByIdAsync(int id);
+    Task UpdateAsync(Car car);
 }
 

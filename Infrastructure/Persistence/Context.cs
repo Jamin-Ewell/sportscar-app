@@ -28,9 +28,7 @@ namespace Infrastructure.Persistence
             // Existing configurations
 
             // Configure Rental entity
-            modelBuilder.Entity<Rental>().HasKey(r => r.Id); // Explicitly setting Id as the primary key
-
-            // If you intend to use 'Rental' as a keyless entity, you would instead use:
+            modelBuilder.Entity<Rental>().HasKey(r => r.Id);
             modelBuilder.Entity<Address>().HasNoKey();
 
             modelBuilder.Entity<Money>().HasNoKey();
@@ -42,11 +40,14 @@ namespace Infrastructure.Persistence
                 new User(1, "John Doe", "johndoe@example.com"),
                 new User(2, "Jane Smith", "janesmith@example.com"));
 
-            // Seed data for Car
+
             // Seed data for Car
             modelBuilder.Entity<Car>().HasData(
-                new Car(1,  "MakeOfSportster3000", "Sportster 3000", 2020, false),
-                new Car(2,  "MakeOfEcoHatch1", "EcoHatch 1", 2020, false)
+                new Car(1,  "Honda", "Accord Sport", 2020, false),
+                new Car(2,  "Hyundai", "Sonata", 2015, false),
+            new Car(3, "BMW", "500 Series", 2022, false),
+            new Car(4, "Mercedes", "Benz", 2024, false),
+            new Car(5, "Fiat", "500", 2019, false)
             );
 
 
