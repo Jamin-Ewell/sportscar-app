@@ -23,7 +23,7 @@ builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
 // Add Middleware
-builder.Services.AddExceptionHandler<AppExceptionHandler>();
+
 
 builder.Services.AddDbContext<Context>(opts =>
     opts.UseNpgsql("Host=localhost;Database=SportCarsDb;Username=root;Password=password"));
@@ -32,9 +32,6 @@ builder.Services.AddAutoMapper(typeof(Program));
 
 builder.Services.AddMediatR(cfg => cfg.RegisterServicesFromAssembly(typeof(Program).Assembly));
 
-//builder.Services.AddMediatR(cfg => cfg.RegisterServicesFromAssembly(typeof(GetAvailableCarsQueryHandler).Assembly));
-
-//builder.Services.AddMediatR(cfg => cfg.RegisterServicesFromAssembly(typeof(UpdateCarStatusCommandHandler).Assembly));
 
 builder.Services.AddCors(options =>
 {
@@ -62,6 +59,8 @@ if (app.Environment.IsDevelopment())
 app.UseExceptionHandler( _ => { });
 
 app.UseHttpsRedirection();
+
+app.UseMiddleware<ExceptionHandlingMiddleware>();
 
 app.UseCors("AllowSpecificOrigin"); // Apply the CORS policy
 

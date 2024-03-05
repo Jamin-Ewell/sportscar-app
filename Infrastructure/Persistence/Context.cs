@@ -17,11 +17,11 @@ namespace Infrastructure.Persistence
 
         }
 
-        public DbSet<Car>? Cars { get; set; }
+        public DbSet<Car> Cars { get; set; }
 
-        public DbSet<User>? User { get; set; }
+        public DbSet<User> User { get; set; }
 
-        public DbSet<Rental>? Rental { get; set; }
+        public DbSet<Rental> Rental { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
