@@ -8,6 +8,7 @@ using Infrastructure.Repository.IRepository;
 
 namespace Application.Services
 {
+    // TODO: Seems like this service is not needed anymore, since you have the MediatR handler now
     public class CarService
     {
         private readonly ICarRepository _carRepository;

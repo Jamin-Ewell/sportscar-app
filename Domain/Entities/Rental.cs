@@ -20,6 +20,7 @@ public class Rental
     public void StartRental()
     {
         // Logic to start rental
+        // TODO: It is a bad idea to use such "external" dependencies as DateTime.Now inside the domain. The biggest problem with that - you will not be able to cover this class by tests properly 
         StartDate = DateTime.Now;
         RentedCar?.BookCar();
 
