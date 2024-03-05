@@ -3,7 +3,7 @@ using System.Net;
 
 namespace Infrastructure.Services
 {
-    public class EmailService
+    public class EmailService // TODO: Would be nice to create some interface for this service, to keep it mockable in the dependent code
     {
         private readonly SmtpClient _smtpClient;
         private readonly MailAddress _fromAddress;

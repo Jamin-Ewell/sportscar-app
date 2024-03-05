@@ -59,7 +59,7 @@ if (app.Environment.IsDevelopment())
     app.UseSwaggerUI();
 }
 
-app.UseExceptionHandler( _ => { });
+app.UseExceptionHandler( _ => { }); // TODO: seems like something should be configured here
 
 app.UseHttpsRedirection();
 
