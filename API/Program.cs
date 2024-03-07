@@ -1,5 +1,4 @@
 using Application.MediatR;
-using Application.Services;
 using Infrastructure.Persistence;
 using Infrastructure.Repository;
 using Infrastructure.Repository.IRepository;
@@ -10,9 +9,6 @@ using API.Middleware;
 using Microsoft.Extensions.DependencyInjection;
 
 var builder = WebApplication.CreateBuilder(args);
-
-// Add services to the container.
-builder.Services.AddTransient<CarService>();
 
 // Assuming CarRepository implements ICarRepository, register it here
 builder.Services.AddTransient<ICarRepository, CarRepository>();

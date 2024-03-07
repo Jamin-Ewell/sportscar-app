@@ -14,6 +14,7 @@
   <ItemGroup>
     <Folder Include="Automapper\AutomapperProfile\" />
     <Folder Include="Interfaces\" />
+    <Folder Include="Services\" />
   </ItemGroup>
 
   <ItemGroup>

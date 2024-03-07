@@ -19,16 +19,11 @@ public class Rental
 
     public void StartRental()
     {
-        // Logic to start rental
-        StartDate = DateTime.Now;
         RentedCar?.BookCar();
-
     }
 
     public void CompleteRental()
     {
-        // Logic to complete rental
-        EndDate = DateTime.Now;
         RentedCar?.ReturnCar();
     }
 }
