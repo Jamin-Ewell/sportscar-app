@@ -1,6 +1,5 @@
 using Application.DTOs;
 using Application.MediatR;
-using Application.Services;
 using Domain.Entities;
 using MediatR;
 using Microsoft.AspNetCore.Mvc;
@@ -12,7 +11,7 @@ public class CarsController : ControllerBase
 {
     private readonly IMediator _mediator;
 
-    public CarsController(CarService carService, IMediator mediator)
+    public CarsController( IMediator mediator)
     {
         _mediator = mediator;
     }
